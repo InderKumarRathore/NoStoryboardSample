@@ -20,6 +20,14 @@
 		91D66262211EDC6100306096 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66260211EDC6100306096 /* Log.swift */; };
 		91D66263211EDC6100306096 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66261211EDC6100306096 /* Utility.swift */; };
 		91D66265211EDD5600306096 /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66264211EDD5600306096 /* FriendListCell.swift */; };
+		91D6626A211EE09C00306096 /* FriendListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66269211EE09C00306096 /* FriendListApi.swift */; };
+		91D6626C211EE0D300306096 /* FriendListCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D6626B211EE0D300306096 /* FriendListCoreData.swift */; };
+		91D66271211EE18900306096 /* FriendMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D6626F211EE18900306096 /* FriendMO+CoreDataClass.swift */; };
+		91D66272211EE18900306096 /* FriendMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66270211EE18900306096 /* FriendMO+CoreDataProperties.swift */; };
+		91D66274211EED2A00306096 /* FriendListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66273211EED2A00306096 /* FriendListInteractor.swift */; };
+		91D66276211EEEE400306096 /* FriendListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66275211EEEE400306096 /* FriendListPresenter.swift */; };
+		91D66278211EF13000306096 /* FriendListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66277211EF13000306096 /* FriendListRouter.swift */; };
+		91D6627A211EF5C300306096 /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D66279211EF5C300306096 /* FriendViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,15 @@
 		91D66260211EDC6100306096 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		91D66261211EDC6100306096 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		91D66264211EDD5600306096 /* FriendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
+		91D66269211EE09C00306096 /* FriendListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListApi.swift; sourceTree = "<group>"; };
+		91D6626B211EE0D300306096 /* FriendListCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCoreData.swift; sourceTree = "<group>"; };
+		91D6626F211EE18900306096 /* FriendMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		91D66270211EE18900306096 /* FriendMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		91D66273211EED2A00306096 /* FriendListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListInteractor.swift; sourceTree = "<group>"; };
+		91D66275211EEEE400306096 /* FriendListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListPresenter.swift; sourceTree = "<group>"; };
+		91D66277211EF13000306096 /* FriendListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListRouter.swift; sourceTree = "<group>"; };
+		91D66279211EF5C300306096 /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
+		91D66280211F46F300306096 /* ClienArchitecture.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ClienArchitecture.pdf; sourceTree = "<group>"; };
 		B117C56A657E5919E33D7AF8 /* Pods-NoStoryboardSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSample/Pods-NoStoryboardSample.debug.xcconfig"; sourceTree = "<group>"; };
 		CE33356126FF44B614D20FFA /* Pods-NoStoryboardSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleUITests/Pods-NoStoryboardSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1D1DCCFDDAE63916D947E6 /* Pods-NoStoryboardSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleUITests/Pods-NoStoryboardSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +138,7 @@
 		91622AED211ED65F00E71D43 = {
 			isa = PBXGroup;
 			children = (
+				91D6627E211F0F0200306096 /* CleanArchitectureFlow */,
 				91622AF8211ED65F00E71D43 /* NoStoryboardSample */,
 				91622B10211ED66100E71D43 /* NoStoryboardSampleTests */,
 				91622B1B211ED66100E71D43 /* NoStoryboardSampleUITests */,
@@ -146,6 +164,7 @@
 				91F18E2A211EDA90005C3A63 /* AppDelegateSetup */,
 				91F18E2F211EDB35005C3A63 /* Assets */,
 				91F18E2C211EDAD5005C3A63 /* CoreDataModel */,
+				91D66267211EE06000306096 /* DataStore */,
 				91D66258211EDB9800306096 /* Scenes */,
 				91D6625F211EDC6100306096 /* Utilities */,
 			);
@@ -181,8 +200,12 @@
 		91D66259211EDBA000306096 /* FriendList */ = {
 			isa = PBXGroup;
 			children = (
-				91622AFB211ED65F00E71D43 /* FriendListVC.swift */,
 				91D66264211EDD5600306096 /* FriendListCell.swift */,
+				91622AFB211ED65F00E71D43 /* FriendListVC.swift */,
+				91D66273211EED2A00306096 /* FriendListInteractor.swift */,
+				91D66275211EEEE400306096 /* FriendListPresenter.swift */,
+				91D66277211EF13000306096 /* FriendListRouter.swift */,
+				91D66279211EF5C300306096 /* FriendViewModel.swift */,
 			);
 			path = FriendList;
 			sourceTree = "<group>";
@@ -194,6 +217,48 @@
 				91D66261211EDC6100306096 /* Utility.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		91D66267211EE06000306096 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				91D66268211EE07400306096 /* FriendListStore */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		91D66268211EE07400306096 /* FriendListStore */ = {
+			isa = PBXGroup;
+			children = (
+				91D66269211EE09C00306096 /* FriendListApi.swift */,
+				91D6626B211EE0D300306096 /* FriendListCoreData.swift */,
+			);
+			path = FriendListStore;
+			sourceTree = "<group>";
+		};
+		91D6626D211EE0FD00306096 /* ManageObjects */ = {
+			isa = PBXGroup;
+			children = (
+				91D6626E211EE17000306096 /* FriendMO */,
+			);
+			path = ManageObjects;
+			sourceTree = "<group>";
+		};
+		91D6626E211EE17000306096 /* FriendMO */ = {
+			isa = PBXGroup;
+			children = (
+				91D6626F211EE18900306096 /* FriendMO+CoreDataClass.swift */,
+				91D66270211EE18900306096 /* FriendMO+CoreDataProperties.swift */,
+			);
+			path = FriendMO;
+			sourceTree = "<group>";
+		};
+		91D6627E211F0F0200306096 /* CleanArchitectureFlow */ = {
+			isa = PBXGroup;
+			children = (
+				91D66280211F46F300306096 /* ClienArchitecture.pdf */,
+			);
+			path = CleanArchitectureFlow;
 			sourceTree = "<group>";
 		};
 		91F18E2A211EDA90005C3A63 /* AppDelegateSetup */ = {
@@ -209,6 +274,7 @@
 		91F18E2C211EDAD5005C3A63 /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				91D6626D211EE0FD00306096 /* ManageObjects */,
 				91622B00211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld */,
 			);
 			path = CoreDataModel;
@@ -435,9 +501,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D66271211EE18900306096 /* FriendMO+CoreDataClass.swift in Sources */,
+				91D66274211EED2A00306096 /* FriendListInteractor.swift in Sources */,
+				91D6627A211EF5C300306096 /* FriendViewModel.swift in Sources */,
+				91D66272211EE18900306096 /* FriendMO+CoreDataProperties.swift in Sources */,
 				91D66263211EDC6100306096 /* Utility.swift in Sources */,
+				91D6626A211EE09C00306096 /* FriendListApi.swift in Sources */,
+				91D6626C211EE0D300306096 /* FriendListCoreData.swift in Sources */,
+				91D66278211EF13000306096 /* FriendListRouter.swift in Sources */,
 				91D66265211EDD5600306096 /* FriendListCell.swift in Sources */,
 				91622AFC211ED65F00E71D43 /* FriendListVC.swift in Sources */,
+				91D66276211EEEE400306096 /* FriendListPresenter.swift in Sources */,
 				91622AFA211ED65F00E71D43 /* AppDelegate.swift in Sources */,
 				91D66262211EDC6100306096 /* Log.swift in Sources */,
 				91622B02211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld in Sources */,
