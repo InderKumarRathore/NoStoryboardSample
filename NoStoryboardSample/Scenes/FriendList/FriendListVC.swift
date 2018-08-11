@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FriendListVC.swift
 //  NoStoryboardSample
 //
 //  Created by Inder Kumar Rathore on 11/08/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FriendListVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

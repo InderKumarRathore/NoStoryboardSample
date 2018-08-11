@@ -16,7 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    // Work without storyboard (reminded me of my past)
+    // Create window object
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    // Create home view controller
+    let friendListVC = FriendListVC(nibName: nil, bundle: nil)
+    // Create navigation controller and sets its rvc as homeVC
+    self.window?.rootViewController = UINavigationController(rootViewController: friendListVC)
+    // Show the window and make it key window
+    self.window?.makeKeyAndVisible()
+    
+    // Intialize the logger
+    Log.initializeLogger()
     return true
   }
 
