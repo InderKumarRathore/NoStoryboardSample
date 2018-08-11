@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Kingfisher (4.8.1)
+  - SwiftyBeaver (1.6.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7.3)
+  - Kingfisher (~> 4.8.1)
+  - SwiftyBeaver (~> 1.6.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Kingfisher
+    - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  SwiftyBeaver: e45759613e50b522b0e6f53b1f0f14389b45ca34
+
+PODFILE CHECKSUM: 655e161605d70ebbf71125f8c071d77f45a94aa5
+
+COCOAPODS: 1.5.0
