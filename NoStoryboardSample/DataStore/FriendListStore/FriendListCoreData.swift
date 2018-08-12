@@ -6,9 +6,24 @@
 //  Copyright © 2018 Inder Kumar Rathore. All rights reserved.
 //
 
+import CoreData
+
 class FriendListCoreData {
-  func getFriendList() -> [FriendMO] {
-    //TODO: fetch all friends from core data
-    return []
+  
+  /// Fetches all the friends from the core data
+  ///
+  /// - Parameter context: Managed object contex
+  /// - Returns: list of friend or nil if some error occurs
+  func getFriendList(context: NSManagedObjectContext) -> [FriendMO]? {
+    //TODO: Fetch all friends from core data
+    let fetchRequest: NSFetchRequest<FriendMO> = FriendMO.fetchRequest()
+    do {
+      let friends = try context.fetch(fetchRequest)
+      return friends
+    }
+    catch {
+      Log.error("Failure to save context: \(error)")
+      return nil
+    }
   }
 }

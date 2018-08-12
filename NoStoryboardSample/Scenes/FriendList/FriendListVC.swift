@@ -10,10 +10,25 @@ import UIKit
 
 // Class only protocol, b'coz FLVC needs to be weak in presenter
 protocol FriendListDisplayLogic: class {
+  
+  /// Displayes the friends
+  ///
+  /// - Parameter viewModels: list of `FriendViewModel`
   func displayFetchedFriends(viewModels: [FriendViewModel])
+  
+  /// Show the loader
+  ///
+  /// - Parameters:
+  ///   - msg: Message on the loader
   func showLoader(msg: String)
+  
+  /// Hides the loader
   func hideLoader()
-  func fetchingFriendsFailed(msg: String)
+  
+  /// Shows the error message
+  ///
+  /// - Parameter _msg: Message to be displayed
+  func showError(_msg: String)
 }
 
 class FriendListVC: UIViewController, FriendListDisplayLogic {
@@ -89,15 +104,15 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
     self.tableView.reloadData()
   }
   
-  func fetchingFriendsFailed(msg: String) {
-    
-  }
-  
   func showLoader(msg: String) {
     
   }
   
   func hideLoader() {
+    
+  }
+  
+  func showError(_msg: String) {
     
   }
   // ~ ~ ~ ~ ~ ListFriendsDisplayLogic Ends ~ ~ ~ ~ ~

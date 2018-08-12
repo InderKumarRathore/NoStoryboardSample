@@ -8,7 +8,9 @@
 
 protocol FriendListPresentationLogic {
   func presentFetchedFriends(friends: [FriendMO])
-  func fetchingFriendsFailed(statusCode: Int, error: Error)
+  func fetchingData()
+  func dataFetched()
+  func showError(_ msg: String)
 }
 
 class FriendListPresenter: FriendListPresentationLogic {
@@ -24,13 +26,19 @@ class FriendListPresenter: FriendListPresentationLogic {
                                       url: friend.imgUrl ?? "")
       viewModels.append(viewModel)
     }
-    
     self.viewController?.displayFetchedFriends(viewModels: viewModels)
+  }
 
+  func fetchingData() {
+    self.viewController?.showLoader(msg: "Fetching Data")
   }
   
-  func fetchingFriendsFailed(statusCode: Int, error: Error) {
-    
+  func dataFetched() {
+    self.viewController?.hideLoader()
+  }
+  
+  func showError(_ msg: String) {
+    self.viewController?.showLoader(msg: msg)
   }
   // ~ ~ ~ ~ FriendListPresentationLogic Ends ~ ~ ~ ~
 }
