@@ -138,6 +138,13 @@ extension FriendListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100.0
   }
+  
+  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    if let friendCell = cell as? FriendListCell {
+      friendCell.profilePicImageview.kf.cancelDownloadTask()
+    }
+  }
 }
 
 extension FriendListVC: UITableViewDataSource {
@@ -151,6 +158,7 @@ extension FriendListVC: UITableViewDataSource {
     let viewModel = self.viewModels[indexPath.row]
     cell.nameLabel.text = viewModel.name
     cell.emailLabel.text = viewModel.email
+    cell.profilePicImageview.kf.setImage(with: URL(string: viewModel.url), placeholder: #imageLiteral(resourceName: "placeholder"))
     return cell
   }
 }
