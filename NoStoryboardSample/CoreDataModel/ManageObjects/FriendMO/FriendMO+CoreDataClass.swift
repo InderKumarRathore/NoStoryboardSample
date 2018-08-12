@@ -18,13 +18,13 @@ public class FriendMO: NSManagedObject {
   ///   - dict: dict containing the keys and value
   ///   - context: context in which mo has to be inserted
   /// - Returns: managed object
-  static func createEntityFromDictionary(dict: [String: String], context: NSManagedObjectContext) -> FriendMO {
+  static func createEntityFromDictionary(dict: [String: AnyObject], context: NSManagedObjectContext) -> FriendMO {
     let friend = NSEntityDescription.insertNewObject(forEntityName: "Friend", into: context) as! FriendMO
     // Set the properties
-    friend.name = dict["name"]
-    friend.email = dict["email"]
-    friend.imgUrl = dict["picture"]
-    friend.id = dict["_id"]
+    friend.name = dict["name"] as? String
+    friend.email = dict["email"]  as? String
+    friend.imgUrl = dict["picture"]  as? String
+    friend.id = dict["_id"]  as? String
     return friend
   }
 }

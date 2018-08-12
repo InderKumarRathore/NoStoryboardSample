@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Intialize the logger
     Log.initializeLogger()
+    
+    // Start listening to the reachability
+    NetworkManager.shared.startNetworkReachabilityObserver()
     return true
   }
 

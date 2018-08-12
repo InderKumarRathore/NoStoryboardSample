@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol FriendListRoutingLogic {
-  func routeToShowOrder(indexPath: IndexPath)
+  func routeToShowFriend(indexPath: IndexPath)
 }
 
 protocol FriendListDataPassing {
@@ -21,7 +21,7 @@ class FriendListRouter: FriendListRoutingLogic, FriendListDataPassing {
   weak var dataStore: FriendListDataStore?
   weak var viewController: UIViewController?
   
-  func routeToShowOrder(indexPath: IndexPath) {
+  func routeToShowFriend(indexPath: IndexPath) {
     
   }
 }

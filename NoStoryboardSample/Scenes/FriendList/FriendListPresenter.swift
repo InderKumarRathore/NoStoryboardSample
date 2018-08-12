@@ -16,6 +16,16 @@ class FriendListPresenter: FriendListPresentationLogic {
   
   // MARK: FriendListPresentationLogic
   func presentFetchedFriends(friends: [FriendMO]) {
+    // Convert the MO into view model
+    var viewModels = [FriendViewModel]()
+    for friend in friends {
+      let viewModel = FriendViewModel(name: friend.name ?? "",
+                                      email: friend.email ?? "",
+                                      url: friend.imgUrl ?? "")
+      viewModels.append(viewModel)
+    }
+    
+    self.viewController?.displayFetchedFriends(viewModels: viewModels)
 
   }
   

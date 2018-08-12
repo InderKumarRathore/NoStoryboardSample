@@ -10,7 +10,7 @@ import UIKit
 
 // Class only protocol, b'coz FLVC needs to be weak in presenter
 protocol FriendListDisplayLogic: class {
-  func displayFetchedOrders(viewModel: [FriendViewModel])
+  func displayFetchedFriends(viewModels: [FriendViewModel])
   func showLoader(msg: String)
   func hideLoader()
   func fetchingFriendsFailed(msg: String)
@@ -19,6 +19,7 @@ protocol FriendListDisplayLogic: class {
 class FriendListVC: UIViewController, FriendListDisplayLogic {
   // Table view for updating the cells
   var tableView: UITableView!
+  var viewModels: [FriendViewModel] = []
   
   // Clean Architecture references
   var interactor: FriendListBusinessLogic!
@@ -27,8 +28,7 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
   // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    self.interactor = FriendListInteractor()
-    
+    setUpCleanArchitecture()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -46,7 +46,7 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
     // Setup table view
     setUpTableView()
     // Fetch the friend list
-    self.interactor.fetchOrders()
+    self.interactor.fetchFriends()
   }
   
   // Set ups the clean architecture ()
@@ -83,9 +83,10 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
     self.tableView.register(FriendListCell.self, forCellReuseIdentifier: NSStringFromClass(FriendListCell.self))
   }
   
-  // MARK: ListOrdersDisplayLogic
-  func displayFetchedOrders(viewModel: [FriendViewModel]) {
-    
+  // MARK: ListFrinedsDisplayLogic
+  func displayFetchedFriends(viewModels: [FriendViewModel]) {
+    self.viewModels = viewModels
+    self.tableView.reloadData()
   }
   
   func fetchingFriendsFailed(msg: String) {
@@ -99,7 +100,7 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
   func hideLoader() {
     
   }
-  // ~ ~ ~ ~ ~ ListOrdersDisplayLogic Ends ~ ~ ~ ~ ~
+  // ~ ~ ~ ~ ~ ListFriendsDisplayLogic Ends ~ ~ ~ ~ ~
 }
 
 extension FriendListVC: UITableViewDelegate {
@@ -110,12 +111,15 @@ extension FriendListVC: UITableViewDelegate {
 
 extension FriendListVC: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return self.viewModels.count
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(FriendListCell.self), for: indexPath) as! FriendListCell
+    let viewModel = self.viewModels[indexPath.row]
+    cell.nameLabel.text = viewModel.name
+    cell.emailLabel.text = viewModel.email
     return cell
   }
 }

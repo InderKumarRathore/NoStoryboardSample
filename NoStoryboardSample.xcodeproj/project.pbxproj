@@ -10,6 +10,7 @@
 		08D5305213ECCA9C1A09B83F /* Pods_NoStoryboardSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F36AA9B506472D133F416AF7 /* Pods_NoStoryboardSampleUITests.framework */; };
 		47AC42FCA4C9CF00DDEC6D0A /* Pods_NoStoryboardSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EDFC00989D087890E60BA0 /* Pods_NoStoryboardSampleTests.framework */; };
 		5A93133F3A22E03D30AF08B0 /* Pods_NoStoryboardSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1FA0B3CB8F9C47B43B74D1 /* Pods_NoStoryboardSample.framework */; };
+		9101997D212022F200E37A64 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101997C212022F200E37A64 /* NetworkManager.swift */; };
 		91622AFA211ED65F00E71D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622AF9211ED65F00E71D43 /* AppDelegate.swift */; };
 		91622AFC211ED65F00E71D43 /* FriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622AFB211ED65F00E71D43 /* FriendListVC.swift */; };
 		91622B02211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91622B00211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 		23EDFC00989D087890E60BA0 /* Pods_NoStoryboardSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoStoryboardSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BB443E621675BA9B5C598E /* Pods-NoStoryboardSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleTests/Pods-NoStoryboardSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F40526E1155127DA68D2D37 /* Pods-NoStoryboardSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleTests/Pods-NoStoryboardSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		9101997C212022F200E37A64 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		91622AF6211ED65F00E71D43 /* NoStoryboardSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoStoryboardSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91622AF9211ED65F00E71D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91622AFB211ED65F00E71D43 /* FriendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListVC.swift; sourceTree = "<group>"; };
@@ -135,6 +137,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9101997B212022D800E37A64 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9101997C212022F200E37A64 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		91622AED211ED65F00E71D43 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 				91F18E2F211EDB35005C3A63 /* Assets */,
 				91F18E2C211EDAD5005C3A63 /* CoreDataModel */,
 				91D66267211EE06000306096 /* DataStore */,
+				9101997B212022D800E37A64 /* Networking */,
 				91D66258211EDB9800306096 /* Scenes */,
 				91D6625F211EDC6100306096 /* Utilities */,
 			);
@@ -513,6 +524,7 @@
 				91622AFC211ED65F00E71D43 /* FriendListVC.swift in Sources */,
 				91D66276211EEEE400306096 /* FriendListPresenter.swift in Sources */,
 				91622AFA211ED65F00E71D43 /* AppDelegate.swift in Sources */,
+				9101997D212022F200E37A64 /* NetworkManager.swift in Sources */,
 				91D66262211EDC6100306096 /* Log.swift in Sources */,
 				91622B02211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld in Sources */,
 			);
