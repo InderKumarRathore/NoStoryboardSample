@@ -11,6 +11,7 @@ target 'NoStoryboardSample' do
   pod 'Alamofire', '~> 4.7.3'
   pod 'Kingfisher', '~> 4.8.1'
   pod 'SwiftyBeaver', '~> 1.6.0'
+  pod 'MBProgressHUD', '~> 1.1.0'
 
   target 'NoStoryboardSampleTests' do
     inherit! :search_paths

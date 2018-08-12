@@ -30,7 +30,7 @@ class FriendListPresenter: FriendListPresentationLogic {
   }
 
   func fetchingData() {
-    self.viewController?.showLoader(msg: "Fetching Data")
+    self.viewController?.showLoader("Fetching Data")
   }
   
   func dataFetched() {
@@ -38,7 +38,7 @@ class FriendListPresenter: FriendListPresentationLogic {
   }
   
   func showError(_ msg: String) {
-    self.viewController?.showLoader(msg: msg)
+    self.viewController?.showError(msg)
   }
   // ~ ~ ~ ~ FriendListPresentationLogic Ends ~ ~ ~ ~
 }

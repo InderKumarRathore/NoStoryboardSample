@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 // Class only protocol, b'coz FLVC needs to be weak in presenter
 protocol FriendListDisplayLogic: class {
@@ -20,7 +21,7 @@ protocol FriendListDisplayLogic: class {
   ///
   /// - Parameters:
   ///   - msg: Message on the loader
-  func showLoader(msg: String)
+  func showLoader(_ msg: String)
   
   /// Hides the loader
   func hideLoader()
@@ -28,13 +29,14 @@ protocol FriendListDisplayLogic: class {
   /// Shows the error message
   ///
   /// - Parameter _msg: Message to be displayed
-  func showError(_msg: String)
+  func showError(_ msg: String)
 }
 
 class FriendListVC: UIViewController, FriendListDisplayLogic {
   // Table view for updating the cells
   var tableView: UITableView!
   var viewModels: [FriendViewModel] = []
+  var hud: MBProgressHUD!
   
   // Clean Architecture references
   var interactor: FriendListBusinessLogic!
@@ -60,6 +62,10 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
     self.view.backgroundColor = .green
     // Setup table view
     setUpTableView()
+    
+    // Setup hud
+    setupProgressHud()
+
     // Fetch the friend list
     self.interactor.fetchFriends()
   }
@@ -98,22 +104,32 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
     self.tableView.register(FriendListCell.self, forCellReuseIdentifier: NSStringFromClass(FriendListCell.self))
   }
   
+  private func setupProgressHud() {
+    self.hud = MBProgressHUD(view: self.view)
+    self.view.addSubview(self.hud)
+  }
+  
   // MARK: ListFrinedsDisplayLogic
   func displayFetchedFriends(viewModels: [FriendViewModel]) {
     self.viewModels = viewModels
     self.tableView.reloadData()
   }
   
-  func showLoader(msg: String) {
-    
+  func showLoader(_ msg: String) {
+    self.hud.label.text = msg
+    self.hud.mode = .indeterminate
+    self.hud.show(animated: true)
   }
   
   func hideLoader() {
-    
+    self.hud.hide(animated: true)
   }
   
-  func showError(_msg: String) {
-    
+  func showError(_ msg: String) {
+    self.hud.label.text = msg
+    self.hud.mode = .text
+    self.hud.show(animated: true)
+    self.hud.hide(animated: true, afterDelay: 2)
   }
   // ~ ~ ~ ~ ~ ListFriendsDisplayLogic Ends ~ ~ ~ ~ ~
 }

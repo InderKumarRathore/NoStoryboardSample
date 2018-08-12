@@ -26,10 +26,15 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
   func fetchFriends() {
     // Check whether internet is present or not
     if NetworkManager.shared.isReachable {
-      // Tell presenter to show the loading
-      // TODO:
+      // Tell presenter to that we're fetching data
+      self.presenter?.fetchingData()
+      
       FriendListApi().getFriendList(success: { [weak self] (data) in
         Log.debug("API Success started")
+        // Tell presenter that we've fetched data
+        DispatchQueue.main.async {
+          self?.presenter?.dataFetched()
+        }
         
         // Check whether we've data or not
         if let friendsArray = data {
@@ -80,6 +85,10 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
           self?.showCachedDataAndError(msg: "Unable to fetch data from the server", statusCode: nil)
         }
       }, failed: ({ [weak self] (statusCode, error) in
+        // Tell presenter that we've fetched data
+        DispatchQueue.main.async {
+          self?.presenter?.dataFetched()
+        }
         // Show cached data
         self?.showCachedDataAndError(msg: nil, statusCode: statusCode)
       }))
@@ -94,7 +103,9 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
     let context = Utility.getAppDelegate().persistentContainer.viewContext
     let friendCD =  FriendListCoreData()
     if let friends = friendCD.getFriendList(context:context) {
-      self.presenter?.presentFetchedFriends(friends: friends)
+      DispatchQueue.main.async {
+        self.presenter?.presentFetchedFriends(friends: friends)
+      }
       // Show error as well
       if let errorMsg = msg {
         DispatchQueue.main.async {
@@ -103,7 +114,7 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
       }
       else {
         // Depending upon the status code we can send the different error messages
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) { //adding delay for hud issue
           self.presenter?.showError("Unable to fech data from the server")
         }
       }
