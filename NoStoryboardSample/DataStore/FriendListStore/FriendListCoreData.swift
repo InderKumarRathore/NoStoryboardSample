@@ -17,6 +17,8 @@ class FriendListCoreData {
   func getFriendList(context: NSManagedObjectContext) -> [FriendMO]? {
     //TODO: Fetch all friends from core data
     let fetchRequest: NSFetchRequest<FriendMO> = FriendMO.fetchRequest()
+    let sort = NSSortDescriptor(key: #keyPath(FriendMO.createdAt), ascending: true)
+    fetchRequest.sortDescriptors = [sort]
     do {
       let friends = try context.fetch(fetchRequest)
       return friends

@@ -29,6 +29,7 @@ public class FriendMO: NSManagedObject {
       friend.latitude = location["latitude"] ?? 0.0
       friend.longitude = location["longitude"] ?? 0.0
     }
+    friend.createdAt = Date() as NSDate
     return friend
   }
 }
