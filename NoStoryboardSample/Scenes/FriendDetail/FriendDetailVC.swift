@@ -76,6 +76,18 @@ class FriendDetailVC: UIViewController {
       emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
       emailLabel.centerXAnchor.constraint(equalTo: nameLabel.centerXAnchor)
       ])
+    
+    //Map view
+    mapView = MKMapView(frame: .zero)
+    mapView.translatesAutoresizingMaskIntoConstraints = false // don't need auto translation
+    self.view.addSubview(mapView)
+    // Set constraints
+    NSLayoutConstraint.activate([
+      mapView.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10),
+      mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+      mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+      mapView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor)
+      ])
   }
   
   private func setFriendData(_ friend: FriendMO) {
@@ -85,6 +97,16 @@ class FriendDetailVC: UIViewController {
     
     self.nameLabel.text = friend.name
     self.emailLabel.text = friend.email
+    
+    if friend.latitude != 0.0 && friend.longitude != 0.0 {
+      let annotation = MKPointAnnotation()
+      let centerCoordinate = CLLocationCoordinate2D(latitude: friend.latitude, longitude:friend.longitude)
+      annotation.coordinate = centerCoordinate
+      annotation.title = friend.name
+      let span = MKCoordinateSpanMake(0.5, 0.5)
+      let region = MKCoordinateRegion(center: centerCoordinate, span: span)
+      mapView.setRegion(region, animated: true)
+      mapView.addAnnotation(annotation)
+    }
   }
-  
 }

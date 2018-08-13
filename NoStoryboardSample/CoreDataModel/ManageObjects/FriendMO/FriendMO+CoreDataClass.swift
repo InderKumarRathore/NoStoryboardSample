@@ -25,6 +25,10 @@ public class FriendMO: NSManagedObject {
     friend.email = dict["email"]  as? String
     friend.imgUrl = dict["picture"]  as? String
     friend.id = dict["_id"]  as? String
+    if let location = dict["location"] as? [String: Double] {
+      friend.latitude = location["latitude"] ?? 0.0
+      friend.longitude = location["longitude"] ?? 0.0
+    }
     return friend
   }
 }
