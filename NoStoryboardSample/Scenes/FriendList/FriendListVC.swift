@@ -99,7 +99,7 @@ class FriendListVC: UIViewController, FriendListDisplayLogic {
       tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
       ])
     
-    self.tableView.backgroundColor = .purple
+    self.tableView.rowHeight = 100
     //Register class
     self.tableView.register(FriendListCell.self, forCellReuseIdentifier: NSStringFromClass(FriendListCell.self))
   }
@@ -144,6 +144,10 @@ extension FriendListVC: UITableViewDelegate {
     if let friendCell = cell as? FriendListCell {
       friendCell.profilePicImageview.kf.cancelDownloadTask()
     }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
 }
 

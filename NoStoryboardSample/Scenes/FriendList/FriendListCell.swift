@@ -26,6 +26,7 @@ class FriendListCell: UITableViewCell {
     // Create profile image view
     profilePicImageview = UIImageView(frame: .zero)
     profilePicImageview.translatesAutoresizingMaskIntoConstraints = false // <- never forget this line
+    profilePicImageview.contentMode = .scaleAspectFill
     profilePicImageview.image = #imageLiteral(resourceName: "placeholder") //placeholder image
     contentView.addSubview(profilePicImageview) // Added as sub view
     // Set the constraints on image view
@@ -36,8 +37,6 @@ class FriendListCell: UITableViewCell {
       profilePicImageview.widthAnchor.constraint(equalTo: profilePicImageview.heightAnchor)
       ])
     profilePicImageview.clipsToBounds = true
-    profilePicImageview.backgroundColor = .blue
-    
     
     // Name label for the cell
     nameLabel = UILabel(frame: .zero)
@@ -46,10 +45,9 @@ class FriendListCell: UITableViewCell {
     contentView.addSubview(nameLabel)
     //Set the constraints
     NSLayoutConstraint.activate([
-      nameLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 15),
+      nameLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 10),
       nameLabel.topAnchor.constraint(equalTo: profilePicImageview.topAnchor, constant: 5)
       ])
-    nameLabel.text = "Hello world"
     
     // Email label for the cell
     emailLabel = UILabel(frame: .zero)
@@ -59,11 +57,9 @@ class FriendListCell: UITableViewCell {
     contentView.addSubview(emailLabel)
     //Set the constraints
     NSLayoutConstraint.activate([
-      emailLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 15),
+      emailLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 10),
       emailLabel.bottomAnchor.constraint(equalTo: profilePicImageview.bottomAnchor, constant: -10)
       ])
-    
-    emailLabel.text = "email@example.rld"
   }
   
   required init?(coder aDecoder: NSCoder) {
