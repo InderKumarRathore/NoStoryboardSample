@@ -11,6 +11,7 @@
 		47AC42FCA4C9CF00DDEC6D0A /* Pods_NoStoryboardSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23EDFC00989D087890E60BA0 /* Pods_NoStoryboardSampleTests.framework */; };
 		5A93133F3A22E03D30AF08B0 /* Pods_NoStoryboardSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1FA0B3CB8F9C47B43B74D1 /* Pods_NoStoryboardSample.framework */; };
 		9101997D212022F200E37A64 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101997C212022F200E37A64 /* NetworkManager.swift */; };
+		9157ACC921215B6900E3EBFC /* FriendDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157ACC821215B6900E3EBFC /* FriendDetailVC.swift */; };
 		91622AFA211ED65F00E71D43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622AF9211ED65F00E71D43 /* AppDelegate.swift */; };
 		91622AFC211ED65F00E71D43 /* FriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91622AFB211ED65F00E71D43 /* FriendListVC.swift */; };
 		91622B02211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91622B00211ED65F00E71D43 /* NoStoryboardSample.xcdatamodeld */; };
@@ -53,6 +54,7 @@
 		30BB443E621675BA9B5C598E /* Pods-NoStoryboardSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleTests/Pods-NoStoryboardSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F40526E1155127DA68D2D37 /* Pods-NoStoryboardSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoStoryboardSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoStoryboardSampleTests/Pods-NoStoryboardSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		9101997C212022F200E37A64 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9157ACC821215B6900E3EBFC /* FriendDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailVC.swift; sourceTree = "<group>"; };
 		91622AF6211ED65F00E71D43 /* NoStoryboardSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoStoryboardSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91622AF9211ED65F00E71D43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91622AFB211ED65F00E71D43 /* FriendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListVC.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		9157ACC721215B4100E3EBFC /* FriendDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9157ACC821215B6900E3EBFC /* FriendDetailVC.swift */,
+			);
+			path = FriendDetail;
+			sourceTree = "<group>";
+		};
 		91622AED211ED65F00E71D43 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		91D66258211EDB9800306096 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9157ACC721215B4100E3EBFC /* FriendDetail */,
 				91D66259211EDBA000306096 /* FriendList */,
 			);
 			path = Scenes;
@@ -517,6 +528,7 @@
 				91D66271211EE18900306096 /* FriendMO+CoreDataClass.swift in Sources */,
 				91D66274211EED2A00306096 /* FriendListInteractor.swift in Sources */,
 				91D6627A211EF5C300306096 /* FriendViewModel.swift in Sources */,
+				9157ACC921215B6900E3EBFC /* FriendDetailVC.swift in Sources */,
 				91D66272211EE18900306096 /* FriendMO+CoreDataProperties.swift in Sources */,
 				91D66263211EDC6100306096 /* Utility.swift in Sources */,
 				91D6626A211EE09C00306096 /* FriendListApi.swift in Sources */,
@@ -697,7 +709,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -713,7 +728,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -730,7 +748,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -748,7 +770,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -765,7 +791,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -782,7 +812,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UZ588YPX8M;
 				INFOPLIST_FILE = NoStoryboardSampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikr.NoStoryboardSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

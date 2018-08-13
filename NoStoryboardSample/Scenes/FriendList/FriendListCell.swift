@@ -11,7 +11,7 @@ import Kingfisher
 
 class FriendListCell: UITableViewCell {
   
-  var profilePicImageview: UIImageView!
+  var profilePicImageView: UIImageView!
   var nameLabel: UILabel!
   var emailLabel: UILabel!
   
@@ -24,19 +24,19 @@ class FriendListCell: UITableViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     // Design cell, assume that cell height is 100
     // Create profile image view
-    profilePicImageview = UIImageView(frame: .zero)
-    profilePicImageview.translatesAutoresizingMaskIntoConstraints = false // <- never forget this line
-    profilePicImageview.contentMode = .scaleAspectFill
-    profilePicImageview.image = #imageLiteral(resourceName: "placeholder") //placeholder image
-    contentView.addSubview(profilePicImageview) // Added as sub view
+    profilePicImageView = UIImageView(frame: .zero)
+    profilePicImageView.translatesAutoresizingMaskIntoConstraints = false // <- never forget this line
+    profilePicImageView.contentMode = .scaleAspectFill
+    profilePicImageView.image = #imageLiteral(resourceName: "placeholder") //placeholder image
+    contentView.addSubview(profilePicImageView) // Added as sub view
     // Set the constraints on image view
     NSLayoutConstraint.activate([
-      profilePicImageview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-      profilePicImageview.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-      profilePicImageview.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8),
-      profilePicImageview.widthAnchor.constraint(equalTo: profilePicImageview.heightAnchor)
+      profilePicImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+      profilePicImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+      profilePicImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8),
+      profilePicImageView.widthAnchor.constraint(equalTo: profilePicImageView.heightAnchor)
       ])
-    profilePicImageview.clipsToBounds = true
+    profilePicImageView.clipsToBounds = true
     
     // Name label for the cell
     nameLabel = UILabel(frame: .zero)
@@ -45,8 +45,8 @@ class FriendListCell: UITableViewCell {
     contentView.addSubview(nameLabel)
     //Set the constraints
     NSLayoutConstraint.activate([
-      nameLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 10),
-      nameLabel.topAnchor.constraint(equalTo: profilePicImageview.topAnchor, constant: 5)
+      nameLabel.leadingAnchor.constraint(equalTo: profilePicImageView.trailingAnchor, constant: 10),
+      nameLabel.topAnchor.constraint(equalTo: profilePicImageView.topAnchor, constant: 5)
       ])
     
     // Email label for the cell
@@ -57,8 +57,8 @@ class FriendListCell: UITableViewCell {
     contentView.addSubview(emailLabel)
     //Set the constraints
     NSLayoutConstraint.activate([
-      emailLabel.leadingAnchor.constraint(equalTo: profilePicImageview.trailingAnchor, constant: 10),
-      emailLabel.bottomAnchor.constraint(equalTo: profilePicImageview.bottomAnchor, constant: -10)
+      emailLabel.leadingAnchor.constraint(equalTo: profilePicImageView.trailingAnchor, constant: 10),
+      emailLabel.bottomAnchor.constraint(equalTo: profilePicImageView.bottomAnchor, constant: -10)
       ])
   }
   
@@ -69,7 +69,7 @@ class FriendListCell: UITableViewCell {
   override func draw(_ rect: CGRect) {
     super.draw(rect)
     // Add rounded corner for the image
-    self.profilePicImageview.layer.cornerRadius = self.profilePicImageview.frame.width/2
+    self.profilePicImageView.layer.cornerRadius = self.profilePicImageView.frame.width/2
   }
 }
 

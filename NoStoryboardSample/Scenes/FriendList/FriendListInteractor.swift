@@ -21,6 +21,8 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
   var friends: [FriendMO] = []
   var presenter: FriendListPresentationLogic?
   
+  // Hold the prive queue
+  private var privateContext: NSManagedObjectContext?
   
   //MARK: FriendListBusinessLogic
   func fetchFriends() {
@@ -42,6 +44,9 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
           let appDelegate = Utility.getAppDelegate()
           appDelegate.persistentContainer.performBackgroundTask({ (context) in
             Log.debug("Background task")
+            //We need to hold the prive context otherwise data will be flushed
+            self?.privateContext = context
+            
             self?.friends.removeAll() // Empty the array
             //Remove existing friends from the core data
             // Create Fetch Request
@@ -103,6 +108,9 @@ class FriendListInteractor: FriendListDataStore, FriendListBusinessLogic {
     let context = Utility.getAppDelegate().persistentContainer.viewContext
     let friendCD =  FriendListCoreData()
     if let friends = friendCD.getFriendList(context:context) {
+      //Assign the self property
+      self.friends = friends
+      
       DispatchQueue.main.async {
         self.presenter?.presentFetchedFriends(friends: friends)
       }

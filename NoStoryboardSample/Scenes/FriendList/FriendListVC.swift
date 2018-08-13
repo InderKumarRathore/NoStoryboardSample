@@ -34,13 +34,13 @@ protocol FriendListDisplayLogic: class {
 
 class FriendListVC: UIViewController, FriendListDisplayLogic {
   // Table view for updating the cells
-  var tableView: UITableView!
-  var viewModels: [FriendViewModel] = []
-  var hud: MBProgressHUD!
+  private var tableView: UITableView!
+  private var viewModels: [FriendViewModel] = []
+  private var hud: MBProgressHUD!
   
   // Clean Architecture references
-  var interactor: FriendListBusinessLogic!
-  var router: (FriendListRoutingLogic & FriendListDataPassing)!
+  private var interactor: FriendListBusinessLogic!
+  private var router: (FriendListRoutingLogic & FriendListDataPassing)!
   
   // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -142,12 +142,13 @@ extension FriendListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     
     if let friendCell = cell as? FriendListCell {
-      friendCell.profilePicImageview.kf.cancelDownloadTask()
+      friendCell.profilePicImageView.kf.cancelDownloadTask()
     }
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    self.router.routeToFriendDetail(indexPath: indexPath)
   }
 }
 
@@ -162,7 +163,7 @@ extension FriendListVC: UITableViewDataSource {
     let viewModel = self.viewModels[indexPath.row]
     cell.nameLabel.text = viewModel.name
     cell.emailLabel.text = viewModel.email
-    cell.profilePicImageview.kf.setImage(with: URL(string: viewModel.url), placeholder: #imageLiteral(resourceName: "placeholder"))
+    cell.profilePicImageView.kf.setImage(with: URL(string: viewModel.url), placeholder: #imageLiteral(resourceName: "placeholder"))
     return cell
   }
 }

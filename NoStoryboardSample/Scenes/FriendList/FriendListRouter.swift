@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol FriendListRoutingLogic {
-  func routeToShowFriend(indexPath: IndexPath)
+  func routeToFriendDetail(indexPath: IndexPath)
 }
 
 protocol FriendListDataPassing {
@@ -21,7 +21,13 @@ class FriendListRouter: FriendListRoutingLogic, FriendListDataPassing {
   weak var dataStore: FriendListDataStore?
   weak var viewController: UIViewController?
   
-  func routeToShowFriend(indexPath: IndexPath) {
-    
+  func routeToFriendDetail(indexPath: IndexPath) {
+    // Get the friend
+    if let friend = self.dataStore?.friends[indexPath.row] {
+      let detailFriendVC = FriendDetailVC(nibName: nil, bundle: nil)
+      // Set the friend
+      detailFriendVC.friendMO = friend
+      self.viewController?.navigationController?.pushViewController(detailFriendVC, animated: true)
+    }
   }
 }
